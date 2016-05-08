@@ -1,20 +1,9 @@
-# MEAN Stack Single Page Application Starter
+# Buyme App
 
-This is a repo for a starter appliation for a Single Page MEAN Stack application. Just download and install and you have a good foundation for building application. 
+This is a repo for the BuyMe app . 
 
-## Installation
-1. Download the repository
-2. Install npm modules: `npm install`
-3. Install bower dependencies `bower install`
-4. Start up the server: `node server.js`
-5. View in browser at http://localhost:8080
+## Description
 
-Use this starter kit to build any MEAN stack application you like.
+This app will allow you to sell your un needed apps online wothout any middle man.
 
-If you have any questions or requests, email us at [chris@scotch.io](mailto:chris@scotch.io) and we'll keep updating this to make it perfect.
-
-## Future Additions
-- CRUD examples
-- Development and Production Environments
-- Link examples
-- Single Page AngularJS Animations
+If you have any questions or requests, email us at [xtrjago@gmail.com](mailto:xtrjago@gmail.com) and we'll keep updating this to make it perfect.

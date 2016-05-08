@@ -1,5 +1,5 @@
 {
-  "firebase": "bbaklava",
+  "firebase": "offerup-clone",
   "public": "public",
   "ignore": [
     "firebase.json",
