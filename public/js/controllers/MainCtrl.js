@@ -1,7 +1,7 @@
 
 angular.module('MainCtrl', ['firebase']).controller('MainController', function($scope, $http, $firebaseArray) {
 
-	var URL = "https://whereismybus.firebaseio.com/";
+	var URL = "https://bbaklava.firebaseio.com/";
     var list = $firebaseArray(new Firebase(URL));
     $scope.items = list;
     console.log("Firebase Data", $scope.items);

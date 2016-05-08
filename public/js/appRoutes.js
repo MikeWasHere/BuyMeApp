@@ -8,38 +8,33 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			controller: 'MainController'
 		})
 
-		.when('/search', {
-			templateUrl: 'views/searchBus.html',
+		.when('/store', {
+			templateUrl: 'views/geek.html',
 			controller: 'GeekController'
 		})
 
-		.when('/main', {
-			templateUrl: 'views/mainPage.html',
+		.when('/about', {
+			templateUrl: 'views/nerd.html',
 			controller: 'NerdController'	
 		})
 
-		.when('/favorites', {
-			templateUrl: 'views/favorites.html',
+		.when('/ingredients', {
+			templateUrl: 'views/ingredients.html',
 			controller: 'NerdController'
 		})
 
-		.when('/recent', {
-			templateUrl: 'views/recent.html',
+		.when('/social', {
+			templateUrl: 'views/social.html',
 			controller: 'NerdController'	
 		})
 
-		.when('/setting', {
-			templateUrl: 'views/setting.html',
+		.when('/contact', {
+			templateUrl: 'views/contact.html',
 			controller: 'NerdController'	
 		})
 
-		.when('/results', {
-			templateUrl: 'views/results.html',
-			controller: 'NerdController'	
-		})
-
-		.when('/bus', {
-			templateUrl: 'views/bus.html',
+		.when('/master', {
+			templateUrl: 'views/master.html',
 			controller: 'NerdController'	
 		});
 

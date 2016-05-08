@@ -1,0 +1,12 @@
+	<h1 class="store animated fadeInUp">Store</h1>
+	<div class="product-row animated fadeInUp">
+		<div ng-repeat="product in items">
+			<div class="theProduct small-2 large-4 columns animated fadeInUp">
+				<img ng-src="{{product.images[0].thumb}}" class="small-centered" alt="">
+				<h3>{{product.name}}</h3>
+				<h4>{{product.description}}</h4>
+				<h3>{{product.price | currency}}</h3>
+				<button ng-show="product.canPurchase" class="cartButton">Add to Cart</button>
+			</div>	
+		</div>
+	</div>
