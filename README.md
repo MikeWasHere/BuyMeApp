@@ -1,4 +1,4 @@
-# Where is my Bus Project
+# BuyMe Project
 
 This is a repo for the BuyMe App application. This application will let users to sell there stuff online in a simple easy way. 
 
