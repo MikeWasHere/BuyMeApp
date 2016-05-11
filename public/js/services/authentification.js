@@ -1,5 +1,4 @@
-angular.module('AuthService', []).factory('Authentification', ['$http', '$rootScope', '$firebaseAuth', '$firebaseObject', '$location', 'FIREBASE_URL', function($http, $rootScope, $firebaseAuth, $firebaseObject, $location, FIREBASE_URL) {
-	console.log("Auth service up and running")
+angular.module('AuthService', []).factory('Authentification', ['$rootScope', '$firebaseAuth', '$firebaseObject', '$location', 'FIREBASE_URL', function($rootScope, $firebaseAuth, $firebaseObject, $location, FIREBASE_URL) {
 
 	var ref = new Firebase(FIREBASE_URL);
 	var auth = $firebaseAuth(ref);
@@ -27,6 +26,7 @@ angular.module('AuthService', []).factory('Authentification', ['$http', '$rootSc
 		}, //login end
 
 		logout: function() {
+			console.log('Actually logging the user out', auth);
 			return auth.$unauth();
 		}, //logout end
 

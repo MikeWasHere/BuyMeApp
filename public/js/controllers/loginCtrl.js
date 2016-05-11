@@ -5,6 +5,8 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, A
 	}; //Login
 
 	$scope.logout = function() {
+
+		console.log("trigger call to logged out", Authentification);
 		Authentification.logout();
 	}; //Logout
 
@@ -15,38 +17,6 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, A
     $scope.myVar = false;
     $scope.toggle = function() {
     $scope.myVar = !$scope.myVar;
-    };
+    }; //Controlls the ng-hide/show through a button
 
 });
-
-
-
-
-
-// ******************** CREATING USER ACCOUNT WITH FIREBASE ********************
-
-// var ref = new Firebase("https://offerup-clone.firebaseio.com");
-// ref.createUser({
-//   email    : "bobtony@firebase.com",
-//   password : "correcthorsebatterystaple"
-// }, function(error, userData) {
-//   if (error) {
-//     console.log("Error creating user:", error);
-//   } else {
-//     console.log("Successfully created user account with uid:", userData.uid);
-//   }
-// });
-
-// ******************** LOGGING THE USER WITH FIREBASE ********************
-
-// var ref = new Firebase("https://offerup-clone.firebaseio.com");
-// ref.authWithPassword({
-//   email    : "bobtony@firebase.com",
-//   password : "correcthorsebatterystaple"
-// }, function(error, authData) {
-//   if (error) {
-//     console.log("Login Failed!", error);
-//   } else {
-//     console.log("Authenticated successfully with payload:", authData);
-//   }
-// });

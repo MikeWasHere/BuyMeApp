@@ -1,57 +1,58 @@
-angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+// angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
-	$routeProvider
+// 	$routeProvider
 
-		// home page
-		.when('/', {
-			templateUrl: 'views/home.html',
-			controller: 'MainController'
-		})
+// 		// home page
+// 		.when('/', {
+// 			templateUrl: 'views/home.html',
+// 			controller: 'MainController'
+// 		})
 
-		.when('/store', {
-			templateUrl: 'views/geek.html',
-			controller: 'GeekController'
-		})
+// 		.when('/store', {
+// 			templateUrl: 'views/geek.html',
+// 			controller: 'GeekController'
+// 		})
 
-		.when('/about', {
-			templateUrl: 'views/nerd.html',
-			controller: 'NerdController'	
-		})
+// 		.when('/about', {
+// 			templateUrl: 'views/nerd.html',
+// 			controller: 'NerdController'	
+// 		})
 
-		.when('/login', {
-			templateUrl: 'views/login.html',
-			controller: 'LoginController'
-		})
+// 		.when('/login', {
+// 			templateUrl: 'views/login.html',
+// 			controller: 'LoginController'
+// 		})
 
-		.when('/register', {
-			templateUrl: 'views/register.html',
-			controller: 'LoginController'
-		})
+// 		.when('/register', {
+// 			templateUrl: 'views/register.html',
+// 			controller: 'LoginController'
+// 		})
 
-		.when('/social', {
-			templateUrl: 'views/social.html',
-			controller: 'NerdController'	
-		})
+// 		.when('/social', {
+// 			templateUrl: 'views/social.html',
+// 			controller: 'NerdController'	
+// 		})
 
-		.when('/contact', {
-			templateUrl: 'views/contact.html',
-			controller: 'NerdController'	
-		})
+// 		.when('/contact', {
+// 			templateUrl: 'views/contact.html',
+// 			controller: 'NerdController'	
+// 		})
 
-		.when('/master', {
-			templateUrl: 'views/master.html',
-			controller: 'NerdController',
-			resolve: {
-				currentAuth: function(Authentication) {
-					return Authentication.requireAuth();
-				} //Current Auth
-			} //Resolve
-		})
+// 		.when('/master', {
+// 			templateUrl: 'views/master.html',
+// 			controller: 'NerdController',
+// 			resolve: {
+// 				currentAuth: function(Authentication) {
+// 					return Authentication.requireAuth();
+// 					console.log(Authentication);
+// 				} //Current Auth
+// 			} //Resolve
+// 		})
 		
-		.otherwise({
-			redirectTo: '/login'
-		});
+// 		.otherwise({
+// 			redirectTo: '/login'
+// 		});
 
-	// $locationProvider.html5Mode(true);
+// 	// $locationProvider.html5Mode(true);
 
-}]);
+// }]);
