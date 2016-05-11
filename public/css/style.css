@@ -4,7 +4,7 @@ body{
 
 ul {
 	list-style-type: none; 
-	margin-top: 13%;
+	margin-top: 18%;
 }
 
 li {
@@ -19,7 +19,7 @@ li {
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-weight: 700;
 	font-size: 1.3em;
-	color: #C0392B;
+	color: #2b2b2b;
 }
 
 li:hover .show{
@@ -29,8 +29,8 @@ li:hover .show{
 #logo {
 	display: block;
 	position: absolute;
-	left: 30%;
-	top: 15%;
+	left: 35%;
+	top: -10%;
 }
 
 .secondaryBody {
@@ -65,7 +65,7 @@ li:hover .show{
 }
 
 .theProduct {
-	background-color: #C0392B;
+	background-color: #2b2b2b;
 	text-align: center;
 	padding-top: 20px;
 	margin: 5px;
@@ -83,13 +83,13 @@ li:hover .show{
 
 .cartButton {
 	border: 2px white solid;
-	background-color: #C0392B;
+	background-color: #2b2b2b;
 	border-radius: 5px;
 }
 
 .cartButton:hover {
 	background-color: white;
-	color: #C0392B;
+	color: #2b2b2b;
 }
 
 /* ABOUT PAGE */
@@ -193,7 +193,7 @@ section p {
 /* CONTACT PAGE */
 
 #contactBanner{
-	background-color: #C0392B;
+	background-color: #2b2b2b;
 }
 
 #contactBanner h4 {
@@ -209,15 +209,14 @@ section p {
 	margin-bottom: 0;
 }
 
-#smallKutlu {
+/*#smallKutlu {
 	display: block;
 	position: absolute;
 	left: 80%;
 	top: 8%;
 	border-radius: 50%;
-}
+}*/
 
-/* CONTACT PAGE */
 #customerInput {
 	float: left;
 	width: 50%;
@@ -250,16 +249,16 @@ section p {
 	font-size: 1.5em;
 }
 
-#submit {
+.submit {
 	float: right;
-	background-color: #C0392B;
+	background-color: #2b2b2b;
 	color: white;
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-weight: 700;
 	font-size: 1.5em;
 }
 
-#submit:hover {
+.submit:hover {
 	background-color: #962A24;
 }
 
