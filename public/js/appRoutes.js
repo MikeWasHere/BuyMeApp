@@ -18,9 +18,14 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			controller: 'NerdController'	
 		})
 
-		.when('/ingredients', {
-			templateUrl: 'views/ingredients.html',
-			controller: 'NerdController'
+		.when('/login', {
+			templateUrl: 'views/login.html',
+			controller: 'LoginController'
+		})
+
+		.when('/register', {
+			templateUrl: 'views/register.html',
+			controller: 'LoginController'
 		})
 
 		.when('/social', {
@@ -35,7 +40,16 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 
 		.when('/master', {
 			templateUrl: 'views/master.html',
-			controller: 'NerdController'	
+			controller: 'NerdController',
+			resolve: {
+				currentAuth: function(Authentication) {
+					return Authentication.requireAuth();
+				} //Current Auth
+			} //Resolve
+		})
+		
+		.otherwise({
+			redirectTo: '/login'
 		});
 
 	// $locationProvider.html5Mode(true);

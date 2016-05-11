@@ -1,5 +1,9 @@
-<div ng-app="MainCtrl" ng-controller="MainController" class="masterBody">
+<div class="userinfo" ng-show="currentUser">
+    <span class="userinfo">Hi {{ currentUser.firstname }}</span>
+    <a ng-href="#/login" ng-click="logout()">Logout</a>
+</div>
 
+<div ng-app="MainCtrl" ng-controller="MainController" class="masterBody">
 
 <h1 ng-hide="edit">Add a product</h1>
 <form ng-submit="addProduct()" ng-hide="edit" class="addForm">

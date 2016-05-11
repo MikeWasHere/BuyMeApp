@@ -1,0 +1,33 @@
+<div class="secondaryBody animated fadeInUp">
+
+  <h1>Register</h1>
+
+  <form name="loginForm" ng-submit="register()">
+  <p class="message" ng-show="message">{{ message }}</p>
+    <div class="row">
+      <div class="medium-12 columns">
+        <fieldset>
+          <input type="text" name="firstname" placeholder="First Name" ng-model="user.firstname" ng-required="true">
+          <p class="error validationerror" ng-show="loginForm.firstname.$invalid && loginForm.firstname.$touched">First name required</p>
+          </input>
+
+          <input type="text" name="lastname" placeholder="Last Name" ng-model="user.lastname" ng-required="true">
+          <p class="error validationerror" ng-show="loginForm.lastname.$invalid && loginForm.lastname.$touched"> Last name required</p>
+          </input>  
+
+          <input type="email" name="email" placeholder="Email" ng-model="user.email" ng-required="true">
+          <p class="error validationerror" ng-show="loginForm.email.$invalid && loginForm.email.$touched">Must be a valid email</p>
+          </input>
+
+          <input type="password" name="password" placeholder="Password" ng-model="user.password" ng-required="true">
+          <p class="error validationerror" ng-show="loginForm.password.$invalid && loginForm.email.$touched"> Password is required</p>
+          </input> 
+        </fieldset>
+      </div>
+      
+      <button class="submit" type="submit" ng-disabled="loginForm.$invalid">Submit</button>
+      <a href="#/login">Login</a>
+
+    </div>
+  </form>
+</div>
