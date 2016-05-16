@@ -1,9 +1,19 @@
 <div class="userinfo" ng-show="currentUser">
     <span class="userinfo">Hi {{ currentUser.firstname }}</span>
-    <a ng-href="#/login" ng-click="logout()">Logout</a>
+    <a ng-href="#/login" ng-click="logout()">Logout</a> <br>
+    <span class="uidinfo">This is your UID: {{ currentUser.regUser }}</span>
 </div>
 
 <div ng-app="MainCtrl" ng-controller="MainController" class="masterBody">
+
+<div>
+	<section ng-repeat="msg in currentConvo">
+	<p>{{msg.author}}:</p>
+		<p>
+			{{msg.text}}
+		</p>
+	</section>
+</div>
 
 <h1 ng-hide="edit">Add a product</h1>
 <form ng-submit="addProduct()" ng-hide="edit" class="addForm">
@@ -47,6 +57,20 @@
 	</div>
 
 </div>
+
+<div class='example-chat-toolbar'>
+    <label for="nameInput">Username:</label>
+    <input type='text' id='nameInput' ng-model='elUsername' placeholder='enter a username...'>
+</div>
+
+  <ul id='example-messages'  class="example-chat-messages"></ul>
+ 
+
+  <footer>
+    <input type='text' id='messageInput' ng-model='elMessage' placeholder='Type a message...'>
+  </footer>
+</div>
+
 </div>
 
 <script>

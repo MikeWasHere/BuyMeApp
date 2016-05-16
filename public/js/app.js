@@ -71,4 +71,23 @@ var myApp = angular.module('sampleApp', ['ngRoute', 'firebase', 'MainCtrl', 'Ner
 
 	// $locationProvider.html5Mode(true);
 
+	var sampleChatRef = new Firebase('https://offerup-clone.firebaseio.com/');
+	var fredNameRef = sampleChatRef.child('users/fred/name');
+	fredNameRef.set({ first: 'Barney', last: 'Stinson' });
+
+	fredNameRef.on('value', function(nameSnapshot) {
+	  var y = nameSnapshot.val();
+	  // y now contains the object { first: 'Fred', last: 'Flintstone' }.
+	});
+
+	var messageListRef = sampleChatRef.child('message_list');
+	messageListRef.push({ 'user_id': 'Barney', 'text': 'Yabba Dabba Doo!' });
+
+	messageListRef.on('child_added', function(newMessageSnapshot) {
+	  var userId = newMessageSnapshot.child('user_id').val();
+	  var text = newMessageSnapshot.child('text').val();
+	  // Do something with user_id and text.
+
+	});
+
 }]);

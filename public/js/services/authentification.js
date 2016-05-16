@@ -26,7 +26,6 @@ angular.module('AuthService', []).factory('Authentification', ['$rootScope', '$f
 		}, //login end
 
 		logout: function() {
-			console.log('Actually logging the user out', auth);
 			return auth.$unauth();
 		}, //logout end
 
