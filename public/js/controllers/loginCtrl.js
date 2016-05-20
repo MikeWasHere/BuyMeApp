@@ -1,4 +1,4 @@
-angular.module('LoginCtrl', []).controller('LoginController', function($scope, Authentification) {
+angular.module('LoginCtrl', []).controller('LoginController', function($scope, Authentification, $firebaseAuth, $firebaseObject, $firebaseArray) {
 
   $scope.currentConvo = [
     
@@ -39,49 +39,95 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, A
   // CREATE A REFERENCE TO FIREBASE
   var messagesRef = new Firebase('https://offerup-clone.firebaseio.com/');
   var convosRef = messagesRef.child('convos');
-  console.log("is chat script working, maybe?");
+  
+  $scope.elMessage = $firebaseObject(messagesRef);
+  $scope.authObj = $firebaseAuth(convosRef);
 
-  // REGISTER DOM ELEMENTS
-  var messageField = $('#messageInput');
-  var nameField = $('#nameInput');
-  var messageList = $('#example-messages');
+  console.log('elmessages ', $scope.elMessage);
 
-  // LISTEN FOR KEYPRESS EVENT
-  messageField.keypress(function (e) {
-    if (e.keyCode == 13) {
-      //FIELD VALUES
-      var username = nameField.val();
-      var message = messageField.val();
+  $scope.authObj.$onAuth(function(authData) {
 
-      //SAVE DATA TO FIREBASE AND EMPTY FIELD
-      messagesRef.push({name:username, text:message});
-      messageField.val('');
+    $scope.authData = authData;
+    // If local login? 
+    if(authData.password != null){
+        $scope.chatUsername = authData.password.email;
+    // Facebook login?
+    }else if (authData.facebook != null){
+        $scope.chatUsername = authData.facebook.displayName;
+    // Google login?
+    }else{
+        $scope.chatUsername = authData.google.displayName;
     }
-  });
 
-  // Add a callback that is triggered for each chat message.
-  convosRef.limitToLast(10).on('child_added', function (snapshot) {
-    //GET DATA
-    var data = snapshot.val();
-    var username = data.name || "anonymous";
-    var message = data.text;
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: Adding messages
+    $scope.messages = $firebaseArray(convosRef.limit(15));
+    $scope.addMessage = function() {
+        $scope.messages.$add({
+            from: $scope.chatUsername, 
+            content: $scope.groupMessage
+        });
+        $scope.groupMessage = "";
+    }
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: Adding members
+    $scope.groups = $firebaseArray(convosRef);
+    $scope.addMember = function(){
+        $scope.groups.$add({
+            memberUsername: $scope.memberUsername
+        });
+        $scope.memberUsername = "";
+    }
 
-    $scope.currentConvo.push({
-      author: data.name || "anonymous",
-      text: data.text
-    });
+    console.log('$scope.groups in groupCtrl', $scope.groups);
+    
+})
 
-    //CREATE ELEMENTS MESSAGE & SANITIZE TEXT
-    var messageElement = $("<li>");
-    var nameElement = $("<strong class='example-chat-username'></strong>")
-    nameElement.text(username);
-    messageElement.text(message).prepend(nameElement);
 
-    //ADD MESSAGE
-    messageList.append(messageElement)
 
-    //SCROLL TO BOTTOM OF MESSAGE LIST
-    messageList[0].scrollTop = messageList[0].scrollHeight;
-  });
+  // ******** REGISTER DOM ELEMENTS ********
+
+  // Registers the message field
+  // var messageField = $('#messageInput');
+  // // Registers the name field
+  // var nameField = $('#nameInput');
+  // // Registers where the messages show up
+  // var messageList = $('#example-messages');
+
+  // // LISTEN FOR KEYPRESS EVENT
+  // messageField.keypress(function (e) {
+  //   if (e.keyCode == 13) {
+  //     //FIELD VALUES
+  //     var username = nameField.val();
+  //     var message = messageField.val();
+
+  //     //SAVE DATA TO FIREBASE AND EMPTY FIELD
+  //     messagesRef.push({name:username, text:message});
+  //     messageField.val(''); // <--- Why is this here??
+  //   }
+  // });
+
+  // // Add a callback that is triggered for each chat message.
+  // convosRef.limitToLast(10).on('child_added', function (snapshot) {
+  //   //GET DATA
+  //   var data = snapshot.val();
+  //   var username = data.name || "anonymous";
+  //   var message = data.text;
+
+  //   $scope.currentConvo.push({
+  //     author: data.name || "anonymous",
+  //     text: data.text
+  //   });
+
+  //   //CREATE ELEMENTS MESSAGE & SANITIZE TEXT
+  //   var messageElement = $("<li>");
+  //   var nameElement = $("<strong class='example-chat-username'></strong>")
+  //   nameElement.text(username);
+  //   messageElement.text(message).prepend(nameElement);
+
+  //   //ADD MESSAGE
+  //   messageList.append(messageElement)
+
+  //   //SCROLL TO BOTTOM OF MESSAGE LIST
+  //   messageList[0].scrollTop = messageList[0].scrollHeight;
+  // });
 
 });

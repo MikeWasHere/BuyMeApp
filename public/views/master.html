@@ -7,10 +7,10 @@
 <div ng-app="MainCtrl" ng-controller="MainController" class="masterBody">
 
 <div>
-	<section ng-repeat="msg in currentConvo">
+	<section ng-repeat="msg in elMessage">
 	<p>{{msg.author}}:</p>
 		<p>
-			{{msg.text}}
+			{{msg.content}}
 		</p>
 	</section>
 </div>
@@ -58,20 +58,28 @@
 
 </div>
 
-<div class='example-chat-toolbar'>
-    <label for="nameInput">Username:</label>
-    <input type='text' id='nameInput' ng-model='elUsername' placeholder='enter a username...'>
-</div>
+<!-- <form ng-submit="">
+	<div class='example-chat-toolbar'>
+	    <label for="nameInput">Username:</label>
+	    <input type='text' id='nameInput' ng-model='elUsername' placeholder='enter a username...'>
+	</div>
 
-  <ul id='example-messages'  class="example-chat-messages"></ul>
- 
+	  <ul id='example-messages'  class="example-chat-messages"></ul>
+	 
 
-  <footer>
-    <input type='text' id='messageInput' ng-model='elMessage' placeholder='Type a message...'>
-  </footer>
-</div>
+	  <footer>
+	    <input type='text' id='messageInput' ng-model='elMessage' placeholder='Type a message...'>
+	  </footer>
+	</div>
+</form> -->
 
-</div>
+<!-- Group message -->
+    <form class="form-inline form-group" ng-submit="addMessage()">
+        <input type="text" ng-model="elMessage" placeholder="Type your groupMessage here" class="form-control">
+        <button class="btn btn-default" type="submit">Send</button>
+    </form>
+
+
 
 <script>
 	var elem = new Foundation.Reveal(element);
