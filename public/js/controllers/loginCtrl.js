@@ -1,21 +1,5 @@
 angular.module('LoginCtrl', []).controller('LoginController', function($scope, Authentification, $firebaseAuth, $firebaseObject, $firebaseArray) {
 
-  $scope.currentConvo = [
-    
-    {
-      text: "Hi buddy",
-      author: "Chapman"
-    },
-    {
-      text: "What up dawggggggg",
-      author: "Mike"
-    },
-    {
-      text: "Use my formal title please, Mr. T. Dawggggg",
-      author: "Chapman"
-    },
-  ]
-
 	$scope.login = function() {
 		Authentification.login($scope.user);
 	}; //Login
@@ -40,10 +24,11 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, A
   var messagesRef = new Firebase('https://offerup-clone.firebaseio.com/');
   var convosRef = messagesRef.child('convos');
   
-  $scope.elMessage = $firebaseObject(messagesRef);
+  $scope.elMessage = $firebaseObject(convosRef);
   $scope.authObj = $firebaseAuth(convosRef);
 
   console.log('elmessages ', $scope.elMessage);
+
 
   $scope.authObj.$onAuth(function(authData) {
 
@@ -51,37 +36,17 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, A
     // If local login? 
     if(authData.password != null){
         $scope.chatUsername = authData.password.email;
-    // Facebook login?
-    }else if (authData.facebook != null){
-        $scope.chatUsername = authData.facebook.displayName;
-    // Google login?
-    }else{
-        $scope.chatUsername = authData.google.displayName;
-    }
-
-// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: Adding messages
-    $scope.messages = $firebaseArray(convosRef.limit(15));
-    $scope.addMessage = function() {
-        $scope.messages.$add({
-            from: $scope.chatUsername, 
-            content: $scope.groupMessage
-        });
-        $scope.groupMessage = "";
-    }
-// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: Adding members
-    $scope.groups = $firebaseArray(convosRef);
-    $scope.addMember = function(){
-        $scope.groups.$add({
-            memberUsername: $scope.memberUsername
-        });
-        $scope.memberUsername = "";
-    }
-
-    console.log('$scope.groups in groupCtrl', $scope.groups);
-    
+    } 
 })
 
+  $scope.messages = $firebaseArray(convosRef);
 
+    $scope.addMessage = function(chatMessage) {
+        $scope.messages.$add({
+            from: $scope.chatUsername, 
+            content: this.chatMessage
+        });
+    }
 
   // ******** REGISTER DOM ELEMENTS ********
 

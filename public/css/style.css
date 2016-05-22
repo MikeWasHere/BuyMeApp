@@ -1,5 +1,9 @@
+html {
+	height: initial;
+}
+
 body{
-	background: url("../img/symphony.png") fixed repeat;
+	background: url("../img/tree_bark.png") fixed repeat;
 }
 
 ul {

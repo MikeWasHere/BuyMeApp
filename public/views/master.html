@@ -6,14 +6,20 @@
 
 <div ng-app="MainCtrl" ng-controller="MainController" class="masterBody">
 
-<div>
+<div class="reveal" id="exampleModal1" data-reveal>
 	<section ng-repeat="msg in elMessage">
-	<p>{{msg.author}}:</p>
+	<p>{{msg.from}}:</p>
 		<p>
 			{{msg.content}}
 		</p>
 	</section>
+
+<!-- Message -->
+    <input type="text" ng-model="chatMessage" placeholder="Type your message here" class="form-control">
+    <button class="btn btn-default" ng-click="addMessage(chatMessage)">Send</button>
 </div>
+
+<p><a data-toggle="exampleModal1">Click me for a modal</a></p>
 
 <h1 ng-hide="edit">Add a product</h1>
 <form ng-submit="addProduct()" ng-hide="edit" class="addForm">
@@ -72,13 +78,6 @@
 	  </footer>
 	</div>
 </form> -->
-
-<!-- Group message -->
-    <form class="form-inline form-group" ng-submit="addMessage()">
-        <input type="text" ng-model="elMessage" placeholder="Type your groupMessage here" class="form-control">
-        <button class="btn btn-default" type="submit">Send</button>
-    </form>
-
 
 
 <script>

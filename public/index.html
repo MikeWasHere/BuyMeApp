@@ -1,10 +1,11 @@
 <!doctype html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<base href="/">
 
-	<title>Welcome to BBaklava</title>
+	<title>Buy Me App</title>
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="libs/foundation/css/foundation.min.css">
@@ -26,12 +27,12 @@
 	<script src="js/controllers/NerdCtrl.js"></script>
 	<script src="js/services/NerdService.js"></script>
 	<script src="js/controllers/GeekCtrl.js"></script>
-	<script src="js/controllers/loginCtrl.js"></script>
 	<script src="js/services/authentification.js"></script>
+	<script src="js/controllers/loginCtrl.js"></script>
 	<script src="js/appRoutes.js"></script>
 	<script src="js/app.js"></script>
-
 </head>
+
 <body ng-app="sampleApp" ng-controller="NerdController">
 <div class="container">
 	
@@ -42,7 +43,8 @@
 			<li><a href="#/store"><img src="../img/store-icon.svg" class="hvr-grow" width="36" height="36"><p class="show animated fadeIn">Store</p></a></li>
 			<li><a href="#/about"><img src="../img/about-icon.svg" class="hvr-grow" width="36" height="36"><p class="show animated fadeIn">About us</p></a></li>
 			<li><a href="#/contact"><img src="../img/contact-icon.svg" class="hvr-grow" width="36" height="36"><p class="show animated fadeIn">Contacts</p></a></li>
-			<li><a href="#/login"><img src="../img/login-icon.svg" class="hvr-grow" width="36" height="36"><p class="show animated fadeIn">Login</p></a></li>
+			<li ng-hide="currentUser"><a href="#/login"><img src="../img/login-icon.svg" class="hvr-grow" width="36" height="36"><p class="show animated fadeIn">Login</p></a></li>
+			<li ng-show="currentUser" ><a href="#/master"><img src="../img/login-icon.svg" class="hvr-grow" width="36" height="36"><p class="show animated fadeIn">Login</p></a></li>
 		</ul>
 	</div>
 
