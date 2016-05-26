@@ -38,7 +38,6 @@ angular.module('AuthService', []).factory('Authentification', ['$rootScope', '$f
 				email: user.email,
 				password: user.password
 			}).then(function(regUser) {
-
 				var regRef = new Firebase(FIREBASE_URL + 'users')
 				.child(regUser.uid).set({
 					date: Firebase.ServerValue.TIMESTAMP,
@@ -49,6 +48,7 @@ angular.module('AuthService', []).factory('Authentification', ['$rootScope', '$f
 				}); // Store user info in database
 
 				$rootScope.message = "Hi " + user.firstname + ", Thanks for registering";
+				$location.path('/master');
 			}).catch(function(error) {
 				$rootScope.message = error.message;
 			}); //create user end

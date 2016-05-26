@@ -1,9 +1,7 @@
 <div class="secondaryBody animated fadeInUp">
 	<h1>Login</h1>
-  
-  
 
-  <form name="loginForm" ng-submit="login('hi')">
+  <form name="loginForm" class="leForms" ng-submit="login('hi')">
   <p class="message" ng-show="message">{{ message }}</p>
     <div class="row">
       <div class="medium-12 columns">
@@ -17,10 +15,10 @@
           </input>  
 
         </fieldset>
+        <button class="submit" type="submit" ng-disabled="loginForm.$invalid">Submit</button>
+        <p style="float:right">Not a Memeber? <a href="#/register">Register</a></p>
       </div>
       
-      <button class="submit" type="submit" ng-disabled="loginForm.$invalid">Submit</button>
-      <a href="#/register">Register</a>
     </div>
   </form>
 

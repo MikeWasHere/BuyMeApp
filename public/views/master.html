@@ -1,25 +1,10 @@
-<div class="userinfo" ng-show="currentUser">
-    <span class="userinfo">Hi {{ currentUser.firstname }}</span>
-    <a ng-href="#/login" ng-click="logout()">Logout</a> <br>
-    <span class="uidinfo">This is your UID: {{ currentUser.regUser }}</span>
-</div>
-
 <div ng-app="MainCtrl" ng-controller="MainController" class="masterBody">
 
-<div class="reveal" id="exampleModal1" data-reveal>
-	<section ng-repeat="msg in elMessage">
-	<p>{{msg.from}}:</p>
-		<p>
-			{{msg.content}}
-		</p>
-	</section>
-
-<!-- Message -->
-    <input type="text" ng-model="chatMessage" placeholder="Type your message here" class="form-control">
-    <button class="btn btn-default" ng-click="addMessage(chatMessage)">Send</button>
+<div class="userinfo" ng-show="currentUser">
+	<a ng-href="#/login" class="pull-right" ng-click="logout()">Logout</a>
+    <span class="userinfo pull-right">Hi <b>{{ currentUser.firstname }} - </b></span>
+     <br>
 </div>
-
-<p><a data-toggle="exampleModal1">Click me for a modal</a></p>
 
 <h1 ng-hide="edit">Add a product</h1>
 <form ng-submit="addProduct()" ng-hide="edit" class="addForm">
@@ -27,6 +12,7 @@
 	<input type="text" ng-model="product.description" placeholder="Short Description" required>
 	<input type="text" ng-model="product.price" placeholder="Whats the price?" required>
 	<input type="text" ng-model="product.image" placeholder="Add image link">
+	<input type='checkbox' ng-model="product.canPurchase" ng-value="true" ng-show="edit" checked/>
 	<button type="submit" class="success">Add Product</button>
 </form>
 
@@ -36,7 +22,9 @@
 	<input type="text" ng-model="updateProduct.description" >
 	<input type="text" ng-model="updateProduct.price" >
 	<input type="text" ng-model="updateProduct.image" placeholder="place image link here">
-	<button type="submit" class="success">Update Production</button>
+	<input type='checkbox' ng-model="product.canPurchase" ng-value="true" ng-show="edit" checked/>
+	<button type="submit" class="success">Update Production</button> 
+	<button ng-click="$parent.updateProduct=product; $parent.edit=false;" class="secondary button" ng-show="edit">Cancel</button>
 </form>
 
 <!-- <a href="" data-reveal-id="myModal">Click Me For A Modal</a>
@@ -50,7 +38,7 @@
 
 <h1>Your active products</h1>
 <div ng-repeat="product in items" class="activeProducts row">
-	<img ng-src="{{product.images[0].thumb}}" alt="" class="large-3 columns">
+	<img ng-src="{{product.image}}" alt="" class="large-3 columns" height="133">
 	<div class="large-6 columns">
 		<h3>{{product.name}}</h3>
 		<h4>{{product.description}}</h4>
@@ -78,8 +66,3 @@
 	  </footer>
 	</div>
 </form> -->
-
-
-<script>
-	var elem = new Foundation.Reveal(element);
-</script>

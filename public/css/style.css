@@ -9,11 +9,20 @@ body{
 ul {
 	list-style-type: none; 
 	margin-top: 18%;
+	display: block;
 }
 
 li {
 	margin-bottom: 2%;
 	width: 15%;
+}
+
+a {
+	color: #519640;
+}
+
+a:hover {
+	color: #407033;
 }
 
 .show{
@@ -23,7 +32,7 @@ li {
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-weight: 700;
 	font-size: 1.3em;
-	color: #2b2b2b;
+	color: #519640;
 }
 
 li:hover .show{
@@ -34,14 +43,15 @@ li:hover .show{
 	display: block;
 	position: absolute;
 	left: 35%;
-	top: -10%;
+	top: -15%;
 }
 
 .secondaryBody {
+
+	position: relative;
 	display: block;
-	position: absolute;
+	top: -500px;
 	left: 10%;
-	top: -15%;
 }
 
 .secondaryBody h1{
@@ -53,47 +63,50 @@ li:hover .show{
 
 /* STORE PAGE */
 
-.store{
+/*.store{
 	position: absolute;
 	display: block;
-	top: -15%;
 	left: 10%;
-}
+}*/
 
-.product-row{
+/*.product-row{
 	max-width: 100%;
 	position: relative;
 	display: block;
+	top: -500px;
 	left: 10%;
-	margin-top: -26%; 
-}
+}*/
 
 .theProduct {
-	background-color: #2b2b2b;
+	background-color: white;
+	border: 1px #dddddd solid;
 	text-align: center;
 	padding-top: 20px;
 	margin: 5px;
 	width: 25%;
-	border-radius: 5px; 
+	border-radius: 10px; 
+	box-shadow: 0px 2px 10px #888888;
+	color: #519640;
+}
+
+.theProduct h3,h4 {
+	color: #8d8e8d;
 }
 
 .theProduct h3 {
-	color: white;
-}
-
-.theProduct h4 {
-	color: white;
+	font-weight: 700;
 }
 
 .cartButton {
-	border: 2px white solid;
-	background-color: #2b2b2b;
+	border: 2px #519640 solid;
+	background-color: white;
 	border-radius: 5px;
+	color: #519640;
 }
 
 .cartButton:hover {
-	background-color: white;
-	color: #2b2b2b;
+	background-color: #519640;
+	color: white;
 }
 
 /* ABOUT PAGE */
@@ -117,7 +130,6 @@ h1 {
 	font-size: 2em;
 	line-height: 50px;
 	font-family: 'Open Sans Condensed', sans-serif;
-
 }
 
 #kutluPic{
@@ -129,44 +141,12 @@ h1 {
 	border-radius: 50%; 
 }
 
-/* INGREDIENTS PAGE */
-
-#ingredients{
-	margin-left: 7%;
-}
-
-.icons{
-	margin-left: 25%;
-}
-
-h3{
-	color: #42210B;
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-weight: 700;
-	text-align: center;
-	font-size: 2.1em;
-}
-
-.ingrPara{
-	text-align: center;
-	font-size: 1em;
-	line-height: 30px;
-}
-
-#xtraInfo{
-	margin-top: 2%;
-	font-size: 2em;
-	text-align: center;
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-weight: 700; 
-}
 
 /* SOCIAL PAGE */
 
 @import "compass/css3";
 
 *, *:before, *:after {box-sizing:  border-box !important;}
-
 
 article {
  -moz-column-width: 13em;
@@ -213,14 +193,6 @@ section p {
 	margin-bottom: 0;
 }
 
-/*#smallKutlu {
-	display: block;
-	position: absolute;
-	left: 80%;
-	top: 8%;
-	border-radius: 50%;
-}*/
-
 #customerInput {
 	float: left;
 	width: 50%;
@@ -254,22 +226,41 @@ section p {
 }
 
 .submit {
-	float: right;
-	background-color: #2b2b2b;
+	float: left;
+	background-color: #519640;
 	color: white;
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-weight: 700;
 	font-size: 1.5em;
+	border-radius: 5px;
 }
 
 .submit:hover {
-	background-color: #962A24;
+	background-color: #407033;
+}
+
+.submit:active {
+	background-color: #407033;
 }
 
 iframe {
 	float: right;
 	width: 45%;
 	margin-top: 5%;
+}
+
+/* LOGIN AND REGISTER PAGE */
+fieldset{
+	border: none;
+	margin-bottom: 0;
+	padding: 0;
+}
+
+.leForms {
+	background-color: white;
+	width: 30%;
+	border-radius: 10px;
+	box-shadow: 0px 2px 10px #888888;
 }
 
 /* MASTER PAGE */
@@ -288,6 +279,7 @@ form {
 .activeProducts {
 	background-color: #E2E2E2;
 	margin-bottom: 2%;
+	box-shadow: 0px 2px 10px #888888;
 }
 
 .activeProducts h3 {
@@ -296,4 +288,8 @@ form {
 
 .activeProducts h4 {
 	text-align: left;
+}
+
+.pull-right{
+	float: right;
 }

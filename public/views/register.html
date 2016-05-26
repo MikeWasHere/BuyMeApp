@@ -2,7 +2,7 @@
 
   <h1>Register</h1>
 
-  <form name="loginForm" ng-submit="register()">
+  <form name="loginForm" class="leForms" ng-submit="register()">
   <p class="message" ng-show="message">{{ message }}</p>
     <div class="row">
       <div class="medium-12 columns">
@@ -23,11 +23,11 @@
           <p class="error validationerror" ng-show="loginForm.password.$invalid && loginForm.email.$touched"> Password is required</p>
           </input> 
         </fieldset>
-      </div>
+      
       
       <button class="submit" type="submit" ng-disabled="loginForm.$invalid">Submit</button>
-      <a href="#/login">Login</a>
-
+      <a href="#/login" style="float:right">Login</a>
+      </div>
     </div>
   </form>
 </div>
